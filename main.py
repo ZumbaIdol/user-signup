@@ -1,31 +1,6 @@
 from flask import Flask, request, redirect, render_template
 
-signup_form = """
-    <style>
-        .error {{ color: red; }}
-    </style>
 
-    <h2>Signup</h2>
-    <form method='POST'>
-        <label>Username
-            <input name="username" type="text" value='' />
-        </label>
-        <p>class="error">{username_error}</p>
-        <label>Password
-            <input name="password" type="password" value='' />
-        </label>
-        <p>class="error">{password_error}</p>
-        <label>Confirm Password
-            <input name="confirm_password"  type="password" value='' />
-        </label>
-        <p>class="error">{confirm_password_error}</p>
-        <label>Email
-            <input name="email" type="text" value='' />
-        </label>
-        <p>class="error">{email_error}</p>
-        <input type="submit" value="submit query" />
-    </form>
-"""
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
@@ -35,9 +10,9 @@ def index():
 #@app.run()
 
 
-@app.route('/signup-form')
+@app.route('/', methods=['POST'])
 def display_signup_form():
-    return signup_form.format(username='', username_error='', password='', password_error='', confirm_password='', confirm_password_error='', email='', email_error='')
+    return render_template('welcome_page.html')
 
 def is_alpha(letter):
     try:
