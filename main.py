@@ -69,7 +69,7 @@ def signup_form():
             email_error = 'Invalid email'
 
     if not username_error and not password_error and not confirm_password_error and not email_error:
-        return welcome_page.html + username
+        return welcome_page.html
 
     else:
         return signup_form(username_error=username_error, password_error=password_error, confirm_password_error=confirm_password_error, email_error=email_error, username=username, password=password, confirm_password=confirm_email_error, email=email)
